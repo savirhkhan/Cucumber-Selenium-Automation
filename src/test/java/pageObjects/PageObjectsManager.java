@@ -2,11 +2,14 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
+import utils.GenericUtils;
+
 public class PageObjectsManager {
 	
 	private LandingPage landingpage;
 	private OffersPage offerspage;
 	private WebDriver driver;
+
 	
 	public PageObjectsManager(WebDriver driver) {
 		this.driver = driver;
@@ -21,6 +24,7 @@ public class PageObjectsManager {
 		offerspage = new OffersPage(driver);
 		return offerspage;
 	}
+	
 	
 	
 

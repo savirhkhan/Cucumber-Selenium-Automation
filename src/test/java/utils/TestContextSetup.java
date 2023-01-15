@@ -8,9 +8,16 @@ public class TestContextSetup {
 	public WebDriver driver;
 	public String textFromMainPage;
 	public PageObjectsManager pageobjectmanager;
+	public TestBase testBase;
+	public  GenericUtils genericUtils;
+	
 	
 	public TestContextSetup() {
-		pageobjectmanager = new PageObjectsManager(driver);
+		testBase = new TestBase();
+		pageobjectmanager = new PageObjectsManager(testBase.webDriverManager());
+		genericUtils = new GenericUtils(testBase.webDriverManager());
 	}
+	
+	
 
 }
