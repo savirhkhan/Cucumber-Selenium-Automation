@@ -16,18 +16,18 @@ public class OfferPageStepDefinitions {
 		this.testContexts = testContexts;
 	}
 
-	@Then("^user serached for same shortname in offers page to check if product exist$")
-	public void user_serached_for_same_shortname_in_offers_page_to_check_if_product_exist() throws Throwable {
+	@Then("^user serached for (.+) shortname in offers page to check if product exist$")
+	public void user_serached_for_shortname_in_offers_page_to_check_if_product_exist(String product) throws Throwable {
 
 		switchOffersPage();
 		OffersPage offerspage = testContexts.pageobjectmanager.getOffersPage();
-		offerspage.getSearchBoxOnOfferPage().sendKeys("Tom");
+		offerspage.getSearchBoxOnOfferPage().sendKeys(product);
 		Thread.sleep(2000);
 		textFromOfferPage = offerspage.getSearchResultsOnOfferPage().getText();
 		System.out.println(textFromOfferPage);
 
 	}
-	
+
 	public void switchOffersPage() {
 		LandingPage landingPage = testContexts.pageobjectmanager.getLandingPage();
 		landingPage.getOfferLink().click();
